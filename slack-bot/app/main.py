@@ -25,7 +25,6 @@ slack_app = App(
     signing_secret=app_config.SLACK_SIGNING_SECRET,
 )
 
-# FastAPI handlers
 handler = SlackRequestHandler(slack_app)
 
 app = FastAPI()
@@ -36,18 +35,15 @@ def handle_message_events(body, say, logger):
     logger.info(body)
     event = body.get("event", {})
 
-    # Ignore messages from bots
     if "bot_id" in event:
         return
 
     text = event.get("text", "").strip()
     user_id = event.get("user")
 
-    # Respond to "!ping" with "pong!"
     if text == "!ping":
         say("pong!")
     else:
-        # Echo back the user's message
         say(f"<@{user_id}> said: {text}")
 
 
