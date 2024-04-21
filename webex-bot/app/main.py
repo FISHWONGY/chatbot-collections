@@ -19,6 +19,7 @@ logger = logging.getLogger(__name__)
 bot = WebexBot(app_config.WEBEX_TOKEN, approved_users=["user@email.com"])
 
 bot.add_command(Ping())
+bot.add_command(Driver())
 
 
 if __name__ == "__main__":
