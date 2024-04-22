@@ -89,7 +89,7 @@ class Driver(Command):
             "content": card_data,
         }
         response = Response()
-        response.text = "Test Card"
+        response.text = "F1 Card"
         response.attachments = card_payload
 
         return response
