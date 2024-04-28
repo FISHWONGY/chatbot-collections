@@ -1,5 +1,8 @@
 from lxml import html
 import requests
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class F1Scraper:
@@ -47,7 +50,7 @@ class F1Scraper:
             dr_pts[initials] = pts
             driver_full_names[initials] = full_name
 
-        print("Driver scores retrieved")
+        logger.info("Driver scores retrieved")
         return dr_pts, driver_full_names
 
     def get_driver_points(self, initials: str) -> str:
